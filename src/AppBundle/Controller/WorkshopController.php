@@ -35,13 +35,11 @@ class WorkshopController extends Controller
         $workshop = $em->getRepository('AppBundle:Workshop')->find($id);
 
         if ($request->query->has('register')) {
-
             $user = $this->get('security.token_storage')->getToken()->getUser();
             if (!$user->getWorkshops()->contains($workshop)) {
                 $user->addWorkshop($workshop);
                 $em->persist($workshop);
                 $em->flush();
-
             }
 
             $this->redirect($this->generateUrl('app_workshop_register', ['id' => $workshop->getId()]));

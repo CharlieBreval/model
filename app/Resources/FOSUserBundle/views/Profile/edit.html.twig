@@ -41,5 +41,20 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    Image
+                </div>
+
+                <div class="portlet-body form">
+                    {% if app.user.image %}
+                        <img style="max-width: 300px; max-height: 300px;" src="{{ asset('uploads/' ~ app.user.image) }}" alt="">
+                    {% else %}
+                        <img style="max-width: 300px; max-height: 300px;" src="https://i.pinimg.com/736x/56/bd/4a/56bd4a7c26beccf4a4b2c54d6aa13ca5--cat-art-illustrations.jpg" alt="">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
