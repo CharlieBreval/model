@@ -91,7 +91,6 @@
                                     start: moment('{{ workshop.start|date('Y-m-d H:i') }}', 'YYYY-MM-DD HH:mm'),
                                     end: moment('{{ workshop.end|date('Y-m-d H:i') }}', 'YYYY-MM-DD HH:mm'),
                                     url: '{{ path('app_workshop_register', {'id': workshop.id}) }}',
-                                    allDay: true,
                                     backgroundColor: App.getBrandColor('blue')
                                 },
                             {% endfor %}
