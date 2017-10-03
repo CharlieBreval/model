@@ -7,7 +7,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Date</th>
+                <th>Start</th>
+                <th>End</th>
                 <th>Titre</th>
                 <th>Actions</th>
             </tr>
@@ -16,7 +17,8 @@
         {% for workshop in workshops %}
             <tr>
                 <td><a href="{{ path('workshop_show', { 'id': workshop.id }) }}">{{ workshop.id }}</a></td>
-                <td>{% if workshop.date %}{{ workshop.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if workshop.start %}{{ workshop.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if workshop.end %}{{ workshop.end|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if workshop.title %}{{ workshop.title }}{% endif %}</td>
                 <td>
                     <ul>

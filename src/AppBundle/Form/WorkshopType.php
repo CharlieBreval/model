@@ -13,8 +13,10 @@ class WorkshopType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date');
+        $builder->add('start');
+        $builder->add('end');
         $builder->add('title');
+        $builder->add('peopleMax');
         $builder->add('description');
     }
 

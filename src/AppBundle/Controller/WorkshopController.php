@@ -12,6 +12,23 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class WorkshopController extends Controller
 {
+    public function unregisterAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $workshop = $em->getRepository('AppBundle:Workshop')->find($id);
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($user->getWorkshops()->contains($workshop)) {
+            $user->removeWorkshop($workshop);
+            $em->persist($user);
+            $em->flush();
+
+            $this->redirect($this->generateUrl('app_workshop_register', ['id' => $workshop->getId()]));
+        }
+
+        return $this->render('workshop/register.html.twig', [
+            'workshop' => $workshop
+        ]);
+    }
     public function registerAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();

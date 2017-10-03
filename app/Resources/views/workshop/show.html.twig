@@ -10,8 +10,12 @@
                 <td>{{ workshop.id }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{% if workshop.date %}{{ workshop.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Start</th>
+                <td>{% if workshop.start %}{{ workshop.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{% if workshop.end %}{{ workshop.end|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Titre</th>

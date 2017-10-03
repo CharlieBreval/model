@@ -29,9 +29,16 @@ class Workshop
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="start", type="datetime")
      */
-    private $date;
+    private $start;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end", type="datetime")
+     */
+    private $end;
 
     /**
      * @var string
@@ -43,12 +50,20 @@ class Workshop
     /**
      * @var string
      *
+     * @ORM\Column(name="people_max", type="integer")
+     */
+    private $peopleMax;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="string")
      */
     private $description;
 
     public function __construct() {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->setPeopleMax(8);
     }
 
     public function getId()
@@ -56,16 +71,28 @@ class Workshop
         return $this->id;
     }
 
-    public function setDate($date)
+    public function setStart($start)
     {
-        $this->date = $date;
+        $this->start = $start;
 
         return $this;
     }
 
-    public function getDate()
+    public function getStart()
     {
-        return $this->date;
+        return $this->start;
+    }
+
+    public function setEnd($end)
+    {
+        $this->end = $end;
+
+        return $this;
+    }
+
+    public function getEnd()
+    {
+        return $this->end;
     }
 
     public function setTitle($title)
@@ -90,6 +117,18 @@ class Workshop
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function setPeopleMax($peopleMax)
+    {
+        $this->peopleMax = $peopleMax;
+
+        return $this;
+    }
+
+    public function getPeopleMax()
+    {
+        return $this->peopleMax;
     }
 
     /**

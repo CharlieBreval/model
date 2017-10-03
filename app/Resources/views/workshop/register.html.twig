@@ -21,10 +21,24 @@
 
     <!-- END PAGE BAR -->
     <!-- BEGIN PAGE TITLE-->
-    <h1 class="page-title"> {{ workshop.date|date('d-m-Y')}}
+    <h1 class="page-title"> {{ workshop.start|date('d-m-Y H:i')}} à {{ workshop.end|date('H:i')}}
         <small>{{ workshop.title }}</small>
-        <a href="{{ path('app_workshop_register', {'id' : workshop.id, 'register': true}) }}" class="btn btn-sm blue"> RESERVER UN SIEGE </a>
     </h1>
+
+    {% if workshop.users.contains(app.user) %}
+        <div class="alert alert-info">
+            <strong>Info!</strong> Vous êtes inscrits &nbsp;&nbsp;&nbsp;<a class='btn btn-submit red' href="{{ path('app_workshop_unregister', {'id': workshop.id}) }}">(Se désinscrire)</a>
+        </div>
+    {% else %}
+        {% if workshop.users|length < workshop.peopleMax %}
+            <a href="{{ path('app_workshop_register', {'id' : workshop.id, 'register': true}) }}" class="btn blue"> RESERVER UN SIEGE </a>
+            Il reste {{ workshop.peopleMax - workshop.users|length }} place(s).
+        {% else %}
+            <div class="alert alert-warning">
+                <strong>Complet!</strong> Cette séance est complète !
+            </div>
+        {% endif %}
+    {% endif %}
 
     <!-- END PAGE TITLE-->
     <!-- END PAGE HEADER-->

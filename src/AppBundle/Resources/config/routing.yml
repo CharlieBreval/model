@@ -9,3 +9,7 @@ app_home:
 app_workshop_register:
     path:      /register-workshop/{id}
     defaults:  { _controller: AppBundle:Workshop:register}
+
+app_workshop_unregister:
+    path:      /unregister-workshop/{id}
+    defaults:  { _controller: AppBundle:Workshop:unregister}
