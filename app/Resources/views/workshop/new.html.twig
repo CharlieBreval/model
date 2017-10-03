@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            Create a workshop
+        </div>
+        <div class="portlet-body form">
+            {{ form_start(form) }}
+                <div class="form-body">
+                    {{ form_widget(form) }}
+                </div>
+                <div class="form-actions">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            <a href="{{ path('workshop_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

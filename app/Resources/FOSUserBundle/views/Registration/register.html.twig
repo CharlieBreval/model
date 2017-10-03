@@ -1,0 +1,55 @@
+{% extends 'base_login.html.twig' %}
+{% set body_class = 'login' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/theme/assets/pages/css/login-3.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/app/css/styles.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block body %}
+    <div class="logo">
+        <a href="index.html">
+            <img src="{{ asset('bundles/app/img/fille.png') }}" alt="" />
+        </a>
+    </div>
+
+<!-- BEGIN LOGIN -->
+<div class="content">
+    <!-- BEGIN REGISTRATION FORM -->
+    <form class="register-form" action="{{ path('fos_user_registration_register') }}" method="post" style="display: block;">
+        <h3>Création de compte</h3>
+        <div class="form-group">
+            <label class="control-label">Username</label>
+            <div class="input-icon">
+                <i class="fa fa-font"></i>
+                <input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fos_user_registration_form[username]" /> </div>
+        </div>
+        <div class="form-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            <label class="control-label">Email</label>
+            <div class="input-icon">
+                <i class="fa fa-envelope"></i>
+                <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="fos_user_registration_form[email]" /> </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Mot de passe</label>
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="fos_user_registration_form[plainPassword][first]" /> </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Confirmez votre mot de passe</label>
+            <div class="controls">
+                <div class="input-icon">
+                    <i class="fa fa-check"></i>
+                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="fos_user_registration_form[plainPassword][second]" /> </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <input type="submit" id="register-submit-btn" class="btn green pull-right" value="Soumettre"> Créer le compte</input>
+        </div>
+    </form>
+    <!-- END REGISTRATION FORM -->
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base_login.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% set body_class = 'login' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/theme/assets/pages/css/login-3.min.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block body %}
+    <div class="logo">
+        <a href="index.html">
+            <img src="{{ asset('bundles/app/img/fille.png') }}" alt="" />
+        </a>
+    </div>
+
+<!-- BEGIN LOGIN -->
+<div class="content">
+    <!-- BEGIN LOGIN FORM -->
+    <form class="login-form" action="{{ path("fos_user_security_check") }}" method="post">
+        {% if csrf_token %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% endif %}
+
+        <h3 class="form-title">Connexion</h3>
+        <div class="alert alert-danger display-hide">
+            <button class="close" data-close="alert"></button>
+            <span> Entrez votre mot de passe à nouveau </span>
+        </div>
+        <div class="form-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            <label class="control-label visible-ie8 visible-ie9">Pseudo</label>
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="_username" value="{{ last_username }}" required="required" /> </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Mot de passe</label>
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="_password" required="required"/> </div>
+        </div>
+        <div class="form-actions">
+            <label class="rememberme mt-checkbox mt-checkbox-outline">
+                <input type="checkbox" name="_remember_me" value="on" /> Se souvenir de moi
+                <span></span>
+            </label>
+            <input class="btn green pull-right" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+
+        </div>
+
+        <div class="forget-password">
+            <h4>Mot de passe oublié ?</h4>
+            <p> Pas de problème
+                <a href="javascript:;" id="forget-password"> Ici </a> pour reset son mot de passe </p>
+        </div>
+
+        <div class="create-account">
+            <p> Pas encore de compte ?&nbsp;
+                <a href="{{ path('fos_user_registration_register')}}" id="register-btn"> Créer un compte </a>
+            </p>
+        </div>
+    </form>
+</div>
+{% endblock %}
