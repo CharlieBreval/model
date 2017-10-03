@@ -1,7 +1,7 @@
 lock "3.9.0"
 
-set :application, "davidfestoc"
-set :repo_url, "https://github.com/CharlieBreval/davidfestoc.git"
+set :application, "model"
+set :repo_url, "https://github.com/CharlieBreval/model.git"
 set :git
 set :format, :pretty
 set :log_level, :info
@@ -41,7 +41,7 @@ set :assets_install_flags,  ''
 
 # Share files/directories between releases
 set :linked_files, ["app/config/parameters.yml"]
-set :linked_dirs, ["var/logs","web/img"]
+set :linked_dirs, ["var/logs","web/img", "web/uploads"]
 
 # Set correct permissions between releases, this is turned off by default
 set :file_permissions_paths, ["var"]
