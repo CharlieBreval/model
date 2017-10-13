@@ -27,6 +27,12 @@ class Workshop
     private $users;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="model_id", referencedColumnName="id")
+     */
+    private $model;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="start", type="datetime")
@@ -64,6 +70,19 @@ class Workshop
     public function __construct() {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setPeopleMax(8);
+    }
+
+    public function getColor()
+    {
+        $now = new \DateTime();
+
+        if ($now > $this->getEnd()) {
+            return 'gray';
+        } elseif ($this->getUsers()->count() >= $this->getPeopleMax()) {
+            return 'pink';
+        } else {
+            return 'blue';
+        }
     }
 
     public function getId()
@@ -163,5 +182,15 @@ class Workshop
     public function getUsers()
     {
         return $this->users;
+    }
+
+    public function setModel(User $model)
+    {
+        $this->model = $model;
+    }
+
+    public function getModel()
+    {
+        return $this->model;
     }
 }

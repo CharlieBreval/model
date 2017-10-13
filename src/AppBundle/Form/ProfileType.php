@@ -10,7 +10,11 @@ class ProfileType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('image', FileType::class, [
+        $builder
+            ->add('phone', null, [
+                'label' => 'Téléphone'
+            ])
+            ->add('image', FileType::class, [
             'mapped' => false,
         ]);
     }

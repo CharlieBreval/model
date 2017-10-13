@@ -72,6 +72,9 @@ class WorkshopController extends Controller
     public function newAction(Request $request)
     {
         $workshop = new Workshop();
+        $workshop->setStart(new \DateTime());
+        $workshop->setEnd(new \DateTime());
+        $workshop->setDescription('Séance de modèle vivant');
         $form = $this->createForm('AppBundle\Form\WorkshopType', $workshop);
         $form->handleRequest($request);
 

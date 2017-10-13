@@ -25,9 +25,13 @@ var App = function() {
         'blue': '#89C4F4',
         'red': '#F3565D',
         'green': '#1bbc9b',
-        'purple': '#9b59b6',
+        'purple': '#92819F',
+        'purple2': '#C49BA8',
+        'pink': '#E7A5A0',
+        'orange': '#FFBB85',
         'grey': '#95a5a6',
-        'yellow': '#F8CB00'
+        'yellow': '#FFD77A',
+        'gray' : '#D7DADB'
     };
 
     // initializes main settings

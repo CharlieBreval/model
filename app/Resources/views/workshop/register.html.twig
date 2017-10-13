@@ -27,7 +27,7 @@
 
     {% if workshop.users.contains(app.user) %}
         <div class="alert alert-info">
-            <strong>Info!</strong> Vous êtes inscrits &nbsp;&nbsp;&nbsp;<a class='btn btn-submit red' href="{{ path('app_workshop_unregister', {'id': workshop.id}) }}">(Se désinscrire)</a>
+            <strong>Info!</strong> Vous êtes inscrit(e) &nbsp;&nbsp;&nbsp;<a class='btn btn-submit red' href="{{ path('app_workshop_unregister', {'id': workshop.id}) }}">(Se désinscrire)</a>
         </div>
     {% else %}
         {% if workshop.users|length < workshop.peopleMax %}
@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-6">
                 <div class="alert alert-info">
-                    <span>En vous inscrivant vous vous engagez à payez <strong> (6€) </strong> une partie du modèle qui se déplacera.</span>
+                    <span>En vous inscrivant vous vous engagez à payer <strong> (6€) </strong> une partie du modèle qui se déplacera.</span>
                 </div>
             </div>
             </div>

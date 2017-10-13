@@ -29,11 +29,33 @@ class User extends BaseUser
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $isModel;
+
     public function __construct()
     {
         parent::__construct();
         $this->workshops = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isModel = false;
     }
+
+    public function isModel()
+    {
+        return $this->isModel;
+    }
+
+    public function setIsModel($isModel)
+    {
+        $this->isModel = $isModel;
+    }
+
 
     public function getId()
     {
@@ -96,5 +118,15 @@ class User extends BaseUser
     public function getImage()
     {
         return $this->image;
+    }
+
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    public function getPhone()
+    {
+        return $this->phone;
     }
 }
