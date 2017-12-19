@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -14,9 +15,8 @@ class ProfileType extends AbstractType
             ->add('phone', null, [
                 'label' => 'Téléphone'
             ])
-            ->add('image', FileType::class, [
-            'mapped' => false,
-        ]);
+            ->add('image', FileType::class, ['mapped' => false ])
+        ;
     }
 
     public function getParent()
