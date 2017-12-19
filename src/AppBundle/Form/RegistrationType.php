@@ -15,10 +15,7 @@ class RegistrationType extends AbstractType
                 'required' => true
             ])
             ->add('isModel', null, [
-                'label' => 'Je suis un modèle',
-                'attr' => [
-                    'class' => 'float-right'
-                ]
+                'label' => 'Je suis un modèle'
             ])
         ;
     }

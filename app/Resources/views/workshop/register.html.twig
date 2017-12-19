@@ -21,7 +21,7 @@
 
     <!-- END PAGE BAR -->
     <!-- BEGIN PAGE TITLE-->
-    <h1 class="page-title"> {{ workshop.start|localizeddate("medium", "none", null, null, "cccc d LLLL yyyy HH:mm")|capitalize }} à {{ workshop.end|date('H:i')}}
+    <h1 class="page-title"> {{ workshop.start|localizeddate("medium", "none", null, null, "cccc d LLLL yyyy HH:mm")|capitalize }} à {{ workshop.end|date('H:i')}} {% if workshop.model is not null %} avec <strong>{{ workshop.model.username}}</strong> {% endif %}
         <small>{{ workshop.title }}</small>
     </h1>
 
