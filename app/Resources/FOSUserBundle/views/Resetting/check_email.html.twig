@@ -1,0 +1,19 @@
+
+
+{% extends 'base_login.html.twig' %}
+{% set body_class = 'login' %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+        <link href="{{ asset('bundles/app/theme/assets/pages/css/login-3.min.css') }}" rel="stylesheet" type="text/css" />
+    {% endblock %}
+
+{% block body %}
+    <div class="content" style="margin-top:100px;">
+        {% trans_default_domain 'FOSUserBundle' %}
+
+            <p>
+            {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+            </p>
+    </div>
+{% endblock %}

@@ -70,4 +70,9 @@ class ProfileController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    public function showAction()
+    {
+        return $this->redirect($this->generateUrl('app_home'));
+    }
 }

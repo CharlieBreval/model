@@ -34,10 +34,10 @@
         {% endblock %}
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
-    <body class="{{ body_class }}">
+    <body class="{% if body_class is defined %}{{ body_class }}{% endif %}">
         {% block body %}{% endblock %}
         {% block javascripts %}
-            
+
         {% endblock %}
     </body>
 </html>
