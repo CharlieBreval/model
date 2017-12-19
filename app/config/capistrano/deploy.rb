@@ -41,7 +41,7 @@ set :assets_install_flags,  ''
 
 # Share files/directories between releases
 set :linked_files, ["app/config/parameters.yml"]
-set :linked_dirs, ["var/logs","web/img", "web/uploads"]
+set :linked_dirs, ["var/logs","web/img", "web/uploads", "var/sessions"]
 
 # Set correct permissions between releases, this is turned off by default
 set :file_permissions_paths, ["var"]
