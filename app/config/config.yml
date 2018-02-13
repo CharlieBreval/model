@@ -84,3 +84,12 @@ fos_user:
     registration:
         form:
             type: AppBundle\Form\RegistrationType
+
+jms_payment_core:
+    encryption:
+        secret: def00000b27746d9a2ca6c90ddc64a1a70a0d6bbb1ff9b6dd8617932630e0122af17a50e6924ab0f7237a0deb191977b85fbcea2406a4527b70268f99f23b58277b68280
+
+jms_payment_paypal:
+    username: charliebreval_api1.yahoo.fr
+    password: Q9WPFNBUHCBK48AU
+    signature: AzHTND34JkIL.gena5JHkfAF.zQvAngIZJpn5Wa88oGFSfbmHdACYcod

@@ -27,6 +27,11 @@ class Workshop
     private $users;
 
     /**
+     * @ORM\OneToMany(targetEntity="Order", mappedBy="workshop")
+     */
+    private $orders;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="model_id", referencedColumnName="id")
      */

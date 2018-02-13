@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Order;
 use AppBundle\Entity\Workshop;
+use JMS\Payment\CoreBundle\Form\ChoosePaymentMethodType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -12,11 +14,22 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class WorkshopController extends Controller
 {
+    /**
+     * Finds and displays a workshop entity.
+     */
+    public function showAction(Workshop $workshop)
+    {
+        return $this->render('workshop/show.html.twig', array(
+            'workshop' => $workshop,
+        ));
+    }
+
     public function unregisterAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $workshop = $em->getRepository('AppBundle:Workshop')->find($id);
         $user = $this->get('security.token_storage')->getToken()->getUser();
+
         if ($user->getWorkshops()->contains($workshop)) {
             $user->removeWorkshop($workshop);
             $em->persist($user);
@@ -29,30 +42,9 @@ class WorkshopController extends Controller
             'workshop' => $workshop
         ]);
     }
-    public function registerAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $workshop = $em->getRepository('AppBundle:Workshop')->find($id);
-
-        if ($request->query->has('register')) {
-            $user = $this->get('security.token_storage')->getToken()->getUser();
-            if (!$user->getWorkshops()->contains($workshop)) {
-                $user->addWorkshop($workshop);
-                $em->persist($workshop);
-                $em->flush();
-            }
-
-            $this->redirect($this->generateUrl('app_workshop_register', ['id' => $workshop->getId()]));
-        }
-
-        return $this->render('workshop/register.html.twig', [
-            'workshop' => $workshop
-        ]);
-    }
 
     /**
      * Lists all workshop entities.
-     *
      */
     public function indexAction()
     {
@@ -67,7 +59,6 @@ class WorkshopController extends Controller
 
     /**
      * Creates a new workshop entity.
-     *
      */
     public function newAction(Request $request)
     {
@@ -92,19 +83,6 @@ class WorkshopController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a workshop entity.
-     *
-     */
-    public function showAction(Workshop $workshop)
-    {
-        $deleteForm = $this->createDeleteForm($workshop);
-
-        return $this->render('workshop/show.html.twig', array(
-            'workshop' => $workshop,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
 
     /**
      * Displays a form to edit an existing workshop entity.

@@ -6,9 +6,39 @@ app_home:
     path:      /
     defaults:  { _controller: AppBundle:Home:index}
 
+app_payment_details:
+    path: /payment-details/{id}
+    defaults:  { _controller: AppBundle:Payment:details}
+
+app_payment_notify:
+    path: /payment-notify/{id}
+    defaults:  { _controller: AppBundle:Payment:notify}
+
+app_payment_success:
+    path: /payment-success/{id}
+    defaults:  { _controller: AppBundle:Payment:success}
+
+app_payment_complete:
+    path: /payment-complete/{orderId}
+    defaults:  { _controller: AppBundle:Payment:complete}
+
+app_payment_cancel:
+    path: /payment-cancel/{id}
+    defaults:  { _controller: AppBundle:Payment:cancel}
+
+
+
+app_workshop_show:
+    path:      /show-workshop/{id}
+    defaults:  { _controller: AppBundle:Workshop:show}
+
 app_workshop_register:
     path:      /register-workshop/{id}
     defaults:  { _controller: AppBundle:Workshop:register}
+
+app_workshop_payment:
+    path:      /payment-workshop/{id}
+    defaults:  { _controller: AppBundle:Workshop:payment}
 
 app_workshop_unregister:
     path:      /unregister-workshop/{id}

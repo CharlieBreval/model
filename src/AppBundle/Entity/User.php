@@ -25,6 +25,11 @@ class User extends BaseUser
     private $workshops;
 
     /**
+     * @ORM\OneToMany(targetEntity="Order", mappedBy="user")
+     */
+    private $orders;
+
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $image;
