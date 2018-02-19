@@ -56,6 +56,13 @@ class Workshop
     /**
      * @var string
      *
+     * @ORM\Column(name="price", type="float")
+     */
+    private $price;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="people_max", type="integer")
      */
     private $peopleMax;
@@ -67,9 +74,17 @@ class Workshop
      */
     private $description;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="created_by", type="string")
+     */
+    private $createdBy;
+
     public function __construct() {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setPeopleMax(8);
+        $this->setPrice(6);
     }
 
     public function getColor()
@@ -192,5 +207,25 @@ class Workshop
     public function getModel()
     {
         return $this->model;
+    }
+
+    public function setCreatedBy(User $user)
+    {
+        $this->createdBy = $user;
+    }
+
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

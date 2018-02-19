@@ -33,6 +33,7 @@ class WorkshopType extends AbstractType
             },
         ]);
         $builder->add('title');
+        $builder->add('price');
         $builder->add('peopleMax');
         $builder->add('description');
     }

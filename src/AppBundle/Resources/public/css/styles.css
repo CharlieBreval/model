@@ -8,3 +8,4 @@
 .login .logo img{max-width: 200px;}
 
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover.navbar-collapse, .page-sidebar.navbar-collapse{padding-top: 40px;}
+ul.no-bullet{ list-style-type: none; padding-left: 0;}

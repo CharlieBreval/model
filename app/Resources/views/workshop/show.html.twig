@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
     <h1>Workshop</h1>
 
@@ -24,16 +23,15 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul class="no-bullet">
         <li>
-            <a href="{{ path('workshop_index') }}">Back to the list</a>
+            <a href="{{ path('workshop_index') }}" class='btn btn-info'>Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('workshop_edit', { 'id': workshop.id }) }}">Edit</a>
+            <a href="{{ path('workshop_edit', { 'id': workshop.id }) }}" class="btn btn-warning">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
     </ul>

@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Workshops list</h1>
+    <h1>Liste des séances</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Start</th>
-                <th>End</th>
+                <th>Début</th>
+                <th>Fin</th>
                 <th>Titre</th>
+                <th>Crée par</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,9 +20,10 @@
                 <td><a href="{{ path('workshop_show', { 'id': workshop.id }) }}">{{ workshop.id }}</a></td>
                 <td>{% if workshop.start %}{{ workshop.start|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if workshop.end %}{{ workshop.end|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if workshop.title %}{{ workshop.title }}{% endif %}</td>
+                <td>{% if workshop.title %}{{ workshop.title|capitalize }}{% endif %}</td>
+                <td>{% if workshop.createdBy %}{{ workshop.createdBy|capitalize }}{% endif %}</td>
                 <td>
-                    <ul>
+                    <ul class="no-bullet">
                         <li>
                             <a href="{{ path('workshop_show', { 'id': workshop.id }) }}">show</a>
                         </li>
@@ -35,9 +37,9 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul class="no-bullet">
         <li>
-            <a href="{{ path('workshop_new') }}">Create a new workshop</a>
+            <a href="{{ path('workshop_new') }}" class="btn btn-info">Ajouter une séance</a>
         </li>
     </ul>
 {% endblock %}
