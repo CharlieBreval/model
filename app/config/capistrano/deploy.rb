@@ -1,4 +1,4 @@
-lock "3.9.0"
+lock "3.11.0"
 
 set :application, "model"
 set :repo_url, "https://github.com/CharlieBreval/model.git"
